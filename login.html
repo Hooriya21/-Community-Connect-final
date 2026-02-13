@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CommunityConnect</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-96">
+        <!-- Logo/Icon -->
+        <div class="text-center mb-4">
+            <i class="fas fa-hands-helping text-purple-600 text-4xl"></i>
+        </div>
+        
+        <h2 class="text-2xl font-bold mb-6 text-center">Welcome Back!</h2>
+        
+        <form id="loginForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input type="email" placeholder="your@email.com" 
+                       class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none">
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input type="password" placeholder="••••••••" 
+                       class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none">
+            </div>
+            
+            <button type="submit" class="w-full bg-purple-600 text-white p-3 rounded-lg font-bold hover:bg-purple-700 transition-colors">
+                <i class="fas fa-sign-in-alt mr-2"></i>Login
+            </button>
+            
+            <div class="text-center text-sm text-gray-600">
+                Don't have an account? 
+                <a href="register.html" class="text-purple-600 font-bold hover:underline">
+                    Join Now
+                </a>
+            </div>
+            
+            <div class="text-center mt-2">
+                <a href="index.html" class="text-gray-500 hover:text-purple-600 text-sm">
+                    <i class="fas fa-arrow-left mr-1"></i>Back to Home
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Simple login handler (for demo purposes)
+        document.getElementById('loginForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Logging in...';
+            button.disabled = true;
+            
+            // Simulate login (replace with real authentication)
+            setTimeout(() => {
+                // For demo: just redirect to dashboard
+                window.location.href = 'dashboard.html';
+                
+                // Reset button (though we're redirecting)
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

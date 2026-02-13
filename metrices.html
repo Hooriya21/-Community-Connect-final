@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Impact Metrics - CommunityConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-2 text-center">
+            <i class="fas fa-chart-line mr-3"></i>CommunityConnect Impact Dashboard
+        </h1>
+        <p class="text-gray-400 text-center mb-8">Real-time metrics from our hackathon demo</p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-gray-800 p-6 rounded-xl">
+                <p class="text-gray-400">Total Exchanges</p>
+                <p class="text-3xl font-bold text-green-400" id="totalExchanges">47</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl">
+                <p class="text-gray-400">Avg. Satisfaction</p>
+                <p class="text-3xl font-bold text-yellow-400" id="satisfaction">94%</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl">
+                <p class="text-gray-400">Neighbors Connected</p>
+                <p class="text-3xl font-bold text-blue-400" id="neighbors">23</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl">
+                <p class="text-gray-400">Kindness Points</p>
+                <p class="text-3xl font-bold text-purple-400" id="totalPoints">1,245</p>
+            </div>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-gray-800 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-4">Exchange Types</h3>
+                <canvas id="exchangeChart" height="250"></canvas>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl">
+                <h3 class="text-xl font-bold mb-4">Growth Timeline</h3>
+                <canvas id="growthChart" height="250"></canvas>
+            </div>
+        </div>
+        
+        <div class="mt-8 text-center">
+            <a href="index.html" class="inline-block bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-bold">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Main App
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Animated metrics
+        function animateCounter(elementId, target, duration = 2000) {
+            const element = document.getElementById(elementId);
+            const start = parseInt(element.textContent.replace(/,/g, '')) || 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
+        
+        // Initialize charts
+        const exchangeCtx = document.getElementById('exchangeChart').getContext('2d');
+        new Chart(exchangeCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Gardening', 'Repairs', 'Tutoring', 'Cooking', 'Other'],
+                datasets: [{
+                    data: [12, 8, 15, 7, 5],
+                    backgroundColor: ['#10B981', '#3B82F6', '#F59E0B', '#8B5CF6', '#6B7280']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                }
+            }
+        });
+        
+        const growthCtx = document.getElementById('growthChart').getContext('2d');
+        new Chart(growthCtx, {
+            type: 'line',
+            data: {
+                labels: ['Hour 1', 'Hour 2', 'Hour 3', 'Hour 4', 'Hour 5', 'Hour 6'],
+                datasets: [{
+                    label: 'Exchanges',
+                    data: [2, 8, 15, 25, 35, 47],
+                    borderColor: '#8B5CF6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { ticks: { color: '#fff' }, grid: { color: '#444' } },
+                    x: { ticks: { color: '#fff' }, grid: { color: '#444' } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                }
+            }
+        });
+        
+        // Animate numbers on load
+        setTimeout(() => {
+            animateCounter('totalExchanges', 47);
+            animateCounter('neighbors', 23);
+            animateCounter('totalPoints', 1245);
+        }, 500);
+    </script>
+</body>
+</html>

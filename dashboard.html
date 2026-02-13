@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - CommunityConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Welcome to Your Dashboard!</h1>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Quick Stats -->
+            <div class="bg-white p-6 rounded-xl shadow">
+                <h3 class="font-bold text-lg mb-4">Your Stats</h3>
+                <p>👥 <span class="font-bold">12</span> neighbors connected</p>
+                <p>🤝 <span class="font-bold">5</span> exchanges completed</p>
+                <p>⭐ <span class="font-bold">245</span> kindness points</p>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="bg-white p-6 rounded-xl shadow">
+                <h3 class="font-bold text-lg mb-4">Quick Actions</h3>
+                <button class="bg-green-500 text-white w-full py-2 rounded mb-2">
+                    <i class="fas fa-plus mr-2"></i>Offer a Skill
+                </button>
+                <button class="bg-blue-500 text-white w-full py-2 rounded">
+                    <i class="fas fa-question mr-2"></i>Request Help
+                </button>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white p-6 rounded-xl shadow">
+                <h3 class="font-bold text-lg mb-4">Recent Activity</h3>
+                <p>✅ Helped Maria with gardening (yesterday)</p>
+                <p>🔄 Exchanged cooking lesson for math help (2 days ago)</p>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="index.html" class="text-purple-600 hover:underline">
+                ← Back to Home
+            </a>
+        </div>
+    </div>
+    
+    <!-- User Profile Section -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Left Column: User Profile -->
+            <div class="md:col-span-1">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="text-center">
+                        <div class="w-24 h-24 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-user text-purple-600 text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" id="userName">Alex Johnson</h3>
+                        <p class="text-gray-600" id="userLocation">Maple Street • 0.3 miles away</p>
+                    </div>
+
+                    <!-- Skills & Needs -->
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">My Skills I Can Share:</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Gardening</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Cooking</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Basic Repairs</span>
+                        </div>
+
+                        <h4 class="font-bold mb-2">Help I Need:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Moving Furniture</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Math Tutoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Active Exchanges -->
+            <div class="md:col-span-2">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Nearby Exchanges</h2>
+                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Live now</span>
+                </div>
+                
+                <!-- Active Exchanges List -->
+                <div class="bg-white rounded-xl shadow-lg p-4 mb-4">
+                    <div class="flex items-center justify-between p-3 border-b">
+                        <div>
+                            <p class="font-bold">🔧 Repair Help</p>
+                            <p class="text-sm text-gray-600">Sarah needs help fixing a leaky faucet</p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">2 blocks away</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 border-b">
+                        <div>
+                            <p class="font-bold">📚 Math Tutoring</p>
+                            <p class="text-sm text-gray-600">David offers algebra help for beginners</p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Same building</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3">
+                        <div>
+                            <p class="font-bold">🌿 Gardening</p>
+                            <p class="text-sm text-gray-600">Maria needs help planting vegetables</p>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">3 blocks away</span>
+                    </div>
+                </div>
+                
+                <!-- Impact Section -->
+                <div class="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                    <h3 class="font-bold text-purple-800 mb-2">✨ Your Impact</h3>
+                    <p class="text-sm">You've helped 5 neighbors this month! Keep it up!</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+                        <div class="bg-purple-600 h-2.5 rounded-full" style="width: 65%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">65% to next reward tier</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-8 py-4 text-center text-gray-500 text-sm">
+        <p>CommunityConnect - Building stronger neighborhoods</p>
+    </footer>
+
+    <script>
+        // Load user data from registration
+        if (window.location.pathname.includes('dashboard.html')) {
+            const userData = JSON.parse(localStorage.getItem('currentUser'));
+            if (userData) {
+                // Update dashboard with user info
+                const nameElement = document.getElementById('userName');
+                const locationElement = document.getElementById('userLocation');
+                
+                if (nameElement) nameElement.textContent = userData.name;
+                if (locationElement) locationElement.textContent = userData.address + ' • Just joined!';
+                
+                // Update points if available
+                const pointsElement = document.querySelector('p:contains("kindness points") span');
+                if (pointsElement && userData.points) {
+                    pointsElement.textContent = userData.points;
+                }
+            }
+        }
+    </script>
+
+    <script>
+    // Load user data from registration
+    const userData = JSON.parse(localStorage.getItem('currentUser'));
+    if (userData) {
+        const nameElement = document.getElementById('userName');
+        const locationElement = document.getElementById('userLocation');
+        
+        if (nameElement) nameElement.textContent = userData.name;
+        if (locationElement) locationElement.textContent = userData.address + ' • Just joined!';
+    }
+</script>
+</body>
+</html>

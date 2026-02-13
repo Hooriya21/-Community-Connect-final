@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join CommunityConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4">
+        <div class="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
+            <div class="text-center">
+                <i class="fas fa-hands-helping text-purple-600 text-4xl mb-4"></i>
+                <h2 class="text-3xl font-bold text-gray-900">Create Your Profile</h2>
+                <p class="text-gray-500 mt-2">Start sharing skills with your neighbors</p>
+            </div>
+
+            <form id="registrationForm" class="mt-8 space-y-6">
+                <div class="rounded-md shadow-sm space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="userName" name="userName" required 
+                               class="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" 
+                               placeholder="Alex Johnson">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Address / Block</label>
+                        <input type="text" id="userAddress" name="userAddress" required 
+                               class="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" 
+                               placeholder="Maple Street, Block A">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Skills You Can Offer <span class="text-gray-400 font-normal">(Be descriptive!)</span></label>
+                        <textarea id="userSkillInput" name="skill" required rows="3"
+                               class="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" 
+                               placeholder="e.g. I can help with basic gardening and planting flowers"></textarea>
+                        <p class="text-xs text-gray-400 mt-1 flex items-center">
+                            <i class="fas fa-robot mr-1"></i> Our AI will automatically categorize your skill.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all">
+                        <i class="fas fa-user-plus mr-2"></i> Complete Registration
+                    </button>
+                </div>
+            </form>
+            
+            <div class="text-center mt-4">
+                <a href="index.html" class="text-purple-600 hover:underline text-sm">
+                    <i class="fas fa-arrow-left mr-1"></i> Back to Home
+                </a>
+            </div>
+            
+            <div class="text-center text-xs text-gray-400 border-t pt-4 mt-4">
+                <p>Already have an account? <a href="login.html" class="text-purple-600 hover:underline">Log in here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-xl text-center shadow-2xl transform scale-100 transition-all">
+            <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-spinner fa-spin text-purple-600 text-4xl"></i>
+            </div>
+            <p class="font-bold text-gray-800 text-lg">AI is analyzing your skills...</p>
+            <p class="text-gray-500 text-sm mt-2">This will just take a moment</p>
+        </div>
+    </div>
+
+    <script src="reg-script.js"></script>
+</body>
+</html>
